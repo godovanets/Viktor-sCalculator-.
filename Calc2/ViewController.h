@@ -13,22 +13,16 @@ CGFloat displayNumber;
 CGFloat resultNumber;
 BOOL isDecimal;
 
+
 @interface ViewController : UIViewController {
     IBOutlet UILabel *result;
 }
 
-//typedef NS_ENUM(NSInteger, Operation) {
-//    OperationPlus = 1,
-//    OperationMinus,
-//    OperationDivide,
-//    OperationMultiply
-//};
-
-- (void)setResultWithNumber:(int)theNumber;
-- (void) operationWithNumber:(int)theNumber;
+//- (void)setResultWithNumber:(int)theNumber;
+//- (void) operationWithNumber:(int)theNumber;
 
 
-
+@property (strong, nonatomic) NSString * outputText;
 
 - (IBAction)percent:(id)sender;
 - (IBAction)sqrt:(id)sender;

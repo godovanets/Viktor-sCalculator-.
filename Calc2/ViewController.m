@@ -53,8 +53,7 @@
 }
 
 - (IBAction)x:(id)sender {
-  //    result.text = [ NSString stringWithFormat:@"%g", ([result.text
-  //    doubleValue] / 100)];
+  
 
   if ([result.text isEqual:@"0"]) {
     result.text = @"x";

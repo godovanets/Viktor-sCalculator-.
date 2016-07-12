@@ -10,15 +10,14 @@
 #import "SecondViewController.h"
 
 @interface ViewController : UIViewController {
-    IBOutlet UILabel *result;
+  IBOutlet UILabel *result;
 }
 
-@property (strong, nonatomic) NSString *graphExpression;
+@property(strong, nonatomic) NSString *graphExpression;
 @property(strong, nonatomic) IBOutlet UIButton *dot;
 @property(strong, nonatomic) IBOutlet UIButton *xDoublePressed;
 @property(assign, nonatomic) BOOL isPressedOPERATOR;
 @property(strong, nonatomic) IBOutlet UIButton *graphButton;
-
 
 - (IBAction)x:(id)sender;
 - (IBAction)sqrt:(id)sender;
@@ -47,4 +46,3 @@
 - (IBAction)cos:(id)sender;
 
 @end
-

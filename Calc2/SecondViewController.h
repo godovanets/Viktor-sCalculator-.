@@ -11,9 +11,9 @@
 
 @interface SecondViewController : UIViewController
 
-@property (strong, nonatomic) NSString* tempBufferForExpression;
+@property(strong, nonatomic) NSString* tempBufferForExpression;
 
-@property (strong, nonatomic) Plot* myViewForPlot;
+@property(strong, nonatomic) Plot* myViewForPlot;
 
 //- (void)setPlotExpression:(NSString *)plotExpression;
 

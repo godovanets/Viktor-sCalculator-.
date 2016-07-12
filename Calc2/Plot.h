@@ -5,13 +5,10 @@
 //  Copyright © 2016 admin. All rights reserved.
 //
 
-
 #import <UIKit/UIKit.h>
 
 @interface Plot : UIView
 
-@property (strong, nonatomic) NSString *expression;
-
+@property(strong, nonatomic) NSString *expression;
 
 @end
-

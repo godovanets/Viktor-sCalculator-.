@@ -15,7 +15,10 @@
 		8405649F1D12CE2000214AD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405649D1D12CE2000214AD8 /* LaunchScreen.storyboard */; };
 		840564AA1D12CE2000214AD8 /* Calc2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840564A91D12CE2000214AD8 /* Calc2Tests.m */; };
 		840564B51D12CE2000214AD8 /* Calc2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840564B41D12CE2000214AD8 /* Calc2UITests.m */; };
+		840D7DBE1D34ED9D00B73958 /* ExpressionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D7DBD1D34ED9D00B73958 /* ExpressionHandler.m */; };
 		84A3D5CF1D19454C00E49A20 /* Calc2 NewVariant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A3D5CD1D19454C00E49A20 /* Calc2 NewVariant.storyboard */; };
+		84F623601D25360100D8ECB5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F6235F1D25360100D8ECB5 /* SecondViewController.m */; };
+		84FD762C1D26871C00211BCD /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD762B1D26871C00211BCD /* Plot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +55,13 @@
 		840564B01D12CE2000214AD8 /* Calc2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Calc2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		840564B41D12CE2000214AD8 /* Calc2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Calc2UITests.m; sourceTree = "<group>"; };
 		840564B61D12CE2000214AD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		840D7DB91D34ED6100B73958 /* ExpressionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpressionHandler.h; sourceTree = "<group>"; };
+		840D7DBD1D34ED9D00B73958 /* ExpressionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressionHandler.m; sourceTree = "<group>"; };
 		84A3D5CE1D19454C00E49A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Calc2 NewVariant.storyboard"; sourceTree = "<group>"; };
+		84F6235E1D25360100D8ECB5 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		84F6235F1D25360100D8ECB5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		84FD762A1D26871C00211BCD /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		84FD762B1D26871C00211BCD /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +122,12 @@
 				8405649D1D12CE2000214AD8 /* LaunchScreen.storyboard */,
 				840564A01D12CE2000214AD8 /* Info.plist */,
 				8405648F1D12CE2000214AD8 /* Supporting Files */,
+				84F6235E1D25360100D8ECB5 /* SecondViewController.h */,
+				84F6235F1D25360100D8ECB5 /* SecondViewController.m */,
+				84FD762A1D26871C00211BCD /* Plot.h */,
+				84FD762B1D26871C00211BCD /* Plot.m */,
+				840D7DB91D34ED6100B73958 /* ExpressionHandler.h */,
+				840D7DBD1D34ED9D00B73958 /* ExpressionHandler.m */,
 			);
 			path = Calc2;
 			sourceTree = "<group>";
@@ -274,8 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FD762C1D26871C00211BCD /* Plot.m in Sources */,
+				84F623601D25360100D8ECB5 /* SecondViewController.m in Sources */,
 				840564971D12CE2000214AD8 /* ViewController.m in Sources */,
 				840564941D12CE2000214AD8 /* AppDelegate.m in Sources */,
+				840D7DBE1D34ED9D00B73958 /* ExpressionHandler.m in Sources */,
 				840564911D12CE2000214AD8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,7 +445,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = calc.SorokaAndrii.Calc2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -439,7 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = calc.SorokaAndrii.Calc2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

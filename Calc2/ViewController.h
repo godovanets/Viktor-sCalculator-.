@@ -7,22 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-NSInteger operation;
-CGFloat displayNumber;
-CGFloat resultNumber;
-BOOL isDecimal;
-
+#import "SecondViewController.h"
 
 @interface ViewController : UIViewController {
     IBOutlet UILabel *result;
 }
 
-//- (void)setResultWithNumber:(int)theNumber;
-//- (void) operationWithNumber:(int)theNumber;
-
-
-@property (strong, nonatomic) NSString * outputText;
+@property (strong, nonatomic) NSString *graphExpression;
 
 - (IBAction)percent:(id)sender;
 - (IBAction)sqrt:(id)sender;
@@ -47,6 +38,8 @@ BOOL isDecimal;
 - (IBAction)seven:(id)sender;
 - (IBAction)eight:(id)sender;
 - (IBAction)nine:(id)sender;
+- (IBAction)sin:(id)sender;
+- (IBAction)cos:(id)sender;
 
 @end
 

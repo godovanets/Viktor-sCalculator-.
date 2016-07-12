@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ExpressionHandler.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    result.text = @"";
+    result.text = @"0";
     result.adjustsFontSizeToFitWidth = TRUE;
+    result.hidden = NO ;
+    
+//    Gradient
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    CGRect gradientFrame = self.view.bounds;
+    CGFloat viewWidth = self.view.bounds.size.width;
+    CGFloat viewHeight = self.view.bounds.size.height;
+    if (viewHeight > viewWidth) {
+        gradientFrame.size.height = viewHeight;
+        gradientFrame.size.width = viewHeight;
+    } else {
+        gradientFrame.size.height = viewWidth;
+        gradientFrame.size.width = viewWidth;
+    }
+    gradient.frame = gradientFrame;
+    UIColor *blueViolet =
+    [UIColor colorWithRed:140/255.0 green:117/255.0 blue:282/255.0 alpha:1.0];
+    UIColor *darkViolet =
+    [UIColor colorWithRed:20/255.0 green:13/255.0 blue:46/255.0 alpha:1.0];
+    gradient.colors =
+    [NSArray arrayWithObjects:(id)[darkViolet CGColor],
+     (id)[blueViolet CGColor], nil];
+    [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,17 +50,24 @@
 }
 
 - (IBAction)percent:(id)sender {
-    result.text = [ NSString stringWithFormat:@"%g", ([result.text doubleValue] / 100)];
+//    result.text = [ NSString stringWithFormat:@"%g", ([result.text doubleValue] / 100)];
     
+    if ([result.text isEqual:@"0"]) {
+        result.text = @"x";
+    }
+    else {
+        result.text = [NSString stringWithFormat:@"%@x", result.text];
+    }
 }
 
 - (IBAction)sqrt:(id)sender {
-  result.text = [NSString stringWithFormat:@"√(%@)", result.text];
+    if ([result.text isEqual:@"0"]) {
+        result.text = @"√(";
+    }
+    else {
+        result.text = [NSString stringWithFormat:@"%@√(", result.text];
+    }
     
-//  _outputText = [NSString stringWithFormat:@"sqrt(%@)",result.text];
-//    result.text = [NSString stringWithFormat:@"√%@",result.text];
-    
-     
 }
 
 
@@ -91,8 +122,9 @@
 }
 
 - (IBAction)equals:(id)sender {
+    if (![result.text containsString:@"x"]) {
         result.text = [NSString stringWithFormat:@"%g", [[self evaluateArithmeticStringExpression:result.text] doubleValue]];
-     
+    }
 }
 
 - (IBAction)back:(id)sender {
@@ -118,7 +150,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@0", result.text];
     }
-     
 }
 
 - (IBAction)one:(id)sender {
@@ -128,7 +159,6 @@
     else {
     result.text = [NSString stringWithFormat:@"%@1", result.text];
     }
-     
 }
 
 - (IBAction)two:(id)sender {
@@ -139,7 +169,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@2", result.text];
     }
-     
 }
 
 - (IBAction)three:(id)sender {
@@ -150,7 +179,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@3", result.text];
     }
-     
 }
 
 - (IBAction)four:(id)sender {
@@ -160,7 +188,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@4", result.text];
     }
-     
 }
 
 - (IBAction)five:(id)sender {
@@ -170,7 +197,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@5", result.text];
     }
-     
 }
 
 - (IBAction)six:(id)sender {
@@ -180,7 +206,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@6", result.text];
     }
-     
 }
 
 - (IBAction)seven:(id)sender {
@@ -190,7 +215,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@7", result.text];
     }
-     
 }
 
 - (IBAction)eight:(id)sender {
@@ -201,7 +225,6 @@
     else {
         result.text = [NSString stringWithFormat:@"%@8", result.text];
     }
-     
 }
 
 - (IBAction)nine:(id)sender {
@@ -212,7 +235,40 @@
     else {
         result.text = [NSString stringWithFormat:@"%@9", result.text];
     }
-     
+}
+
+- (IBAction)sin:(id)sender {
+    if ([result.text isEqual:@"0"]) {
+        
+        result.text = @"sin(";
+    }
+    else {
+        result.text = [NSString stringWithFormat:@"%@sin(", result.text];
+    }
+}
+
+- (IBAction)cos:(id)sender {
+    if ([result.text isEqual:@"0"]) {
+        
+        result.text = @"cos(";
+    }
+    else {
+        result.text = [NSString stringWithFormat:@"%@cos(", result.text];
+    }
+
+}
+
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    NSLog(@"Line 212 entered. Segue identifier : %@", segue.identifier);
+//    if([segue.identifier isEqualToString:@"plotSegue"]){
+//        NSLog(@"View controller : %@", result.text);
+        SecondViewController *secondController = [segue destinationViewController];
+    //[secondController setPlotExpression:result.text];
+    secondController.tempBufferForExpression = result.text;
+//    }
 }
 
 - (NSNumber *)evaluateArithmeticStringExpression:(NSString *)expression {
@@ -220,6 +276,9 @@
     NSNumber *calculatedResult = nil;
     expression = [expression stringByReplacingOccurrencesOfString:@"^" withString:@"**"];
     expression = [expression stringByReplacingOccurrencesOfString:@"√" withString:@"sqrt:"];
+    while ([expression containsString:@"sin"] || [expression containsString:@"cos"]) {
+        expression = [ExpressionHandler processExpression:expression];
+    }
     @try {
         NSPredicate * parsed = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"1.0 * %@ = 0", expression]];
         NSExpression * left = [(NSComparisonPredicate *)parsed leftExpression];

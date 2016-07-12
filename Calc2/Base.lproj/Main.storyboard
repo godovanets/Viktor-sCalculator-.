@@ -191,7 +191,7 @@
                                     <color key="titleColor" red="0.52156862745098043" green="0.36470588235294116" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="percent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vbh-rb-laQ"/>
+                                    <action selector="x:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jjJ-g1-pgD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-1f-MrC">
@@ -444,7 +444,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="dot" destination="MHU-qm-CNs" id="2Q0-uF-gJV"/>
+                        <outlet property="graphButton" destination="JQQ-Mf-yMM" id="hwx-4V-sxu"/>
                         <outlet property="result" destination="Elp-1f-MrC" id="jeA-3e-kUA"/>
+                        <outlet property="xDoublePressed" destination="XmL-se-UkS" id="a8f-Kc-tcG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

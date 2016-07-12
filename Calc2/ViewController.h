@@ -15,8 +15,12 @@
 
 @property (strong, nonatomic) NSString *graphExpression;
 @property(strong, nonatomic) IBOutlet UIButton *dot;
+@property(strong, nonatomic) IBOutlet UIButton *xDoublePressed;
+@property(assign, nonatomic) BOOL isPressedOPERATOR;
+@property(strong, nonatomic) IBOutlet UIButton *graphButton;
 
-- (IBAction)percent:(id)sender;
+
+- (IBAction)x:(id)sender;
 - (IBAction)sqrt:(id)sender;
 - (IBAction)exp:(id)sender;
 - (IBAction)clear:(id)sender;

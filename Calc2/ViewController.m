@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 
+
 @end
 
 @implementation ViewController
@@ -78,7 +79,9 @@
 
 - (IBAction)clear:(id)sender {
     result.text = [NSString stringWithFormat:@"%i",0];
-     
+  self.dot.enabled = YES;
+
+  
 }
 
 - (IBAction)bracket1:(id)sender {
@@ -104,27 +107,37 @@
 
 - (IBAction)divide:(id)sender {
     result.text = [result.text stringByAppendingString:@"/"];
-     
+  self.dot.enabled = YES;
+
+  
 }
 
 - (IBAction)multiply:(id)sender {
     result.text = [result.text stringByAppendingString:@"*"];
-     
+  self.dot.enabled = YES;
+
+  
 }
 
 - (IBAction)minus:(id)sender {
     result.text = [result.text stringByAppendingString:@"-"];
-     
+  self.dot.enabled = YES;
+
+  
 }
 
 - (IBAction)plus:(id)sender {
     result.text = [result.text stringByAppendingString:@"+"];
+  self.dot.enabled = YES;
+
 }
 
 - (IBAction)equals:(id)sender {
     if (![result.text containsString:@"x"]) {
         result.text = [NSString stringWithFormat:@"%g", [[self evaluateArithmeticStringExpression:result.text] doubleValue]];
     }
+  self.dot.enabled = YES;
+
 }
 
 - (IBAction)back:(id)sender {
@@ -140,6 +153,8 @@
 
 - (IBAction)dot:(id)sender {
     result.text = [result.text stringByAppendingString:@"."];
+        self.dot.enabled = NO;
+
      
 }
 

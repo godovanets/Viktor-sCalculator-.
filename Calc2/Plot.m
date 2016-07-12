@@ -17,7 +17,7 @@
 {
     [super drawRect:CGRectMake(0, 0, 0, 0)];
     
-    // Create a gradient from white to red
+    // Create a gradient
     CGFloat colors [] = {
         20/255., 20/255., 46/255., 1.0,
         140/255.0, 117/255., 282/255., 1.0 //red green blue alpha (0.0 - 1.0) x/255.

@@ -14,6 +14,7 @@
 }
 
 @property (strong, nonatomic) NSString *graphExpression;
+@property(strong, nonatomic) IBOutlet UIButton *dot;
 
 - (IBAction)percent:(id)sender;
 - (IBAction)sqrt:(id)sender;
